@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    
+        <title>
+             The Riddle
+            
+        </title>
+
+        
+            <meta property="og:title" content="The Riddle" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="一个网页版的解密闯关的游戏" />
+        
+    
+
+    
+        
+            <meta name="description" content="一个网页版的解密闯关的游戏" />
+        
+    
+
+    
+         <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.png />
+    
+
+    
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWCYHDPZF1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-NWCYHDPZF1');
+        </script>
+    
+
+    
+    
+        <script src=https://hawkinggg.github.io/js/feather.min.js></script>
+    
+
+
+    
+        <link href=https://hawkinggg.github.io/css/fonts.css rel="stylesheet" />
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://hawkinggg.github.io/css/main.css />
+
+    
+        <link
+            rel="stylesheet"
+            id="darkModeStyle"
+            type="text/css"
+            href=https://hawkinggg.github.io/css/dark.css
+            
+            
+                disabled
+            
+        />
+    
+
+    
+
+
+    
+
+
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main" id="main_title">
+        <a href=https:&#x2F;&#x2F;hawkinggg.github.io>十二空间</a>
+    </div>
+
+    <nav>
+        
+            <a href=&#x2F;>Home</a>
+        
+            <a href=&#x2F;posts>All posts</a>
+        
+            <a href=&#x2F;about>About</a>
+        
+            <a href=&#x2F;tags>Tags</a>
+        
+
+        
+
+        
+            | <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+            <script src=https://hawkinggg.github.io/js/themetoggle.js></script>
+        
+    </nav>
+</header>
+
+
+        
+    
+<main>
+    <article>
+        <div class="title">
+            <h1 class="title">The Riddle</h1>
+            <div class="meta">
+                
+                on  2024-10-12
+
+                
+            </div>
+        </div>
+
+        
+
+        <section class="body">
+            <p>起因是在v2ex上看到一个<a href="https://v2ex.com/t/1061427">帖子</a>，作者发表了一个web3相关的项目，顺带说正在学习CTF便发布几个小型解密游戏悬赏做宣传。悬赏还挺高的呢，虽然已经被拿走了，还是点进去想试一试，结果发现毫无头绪，无从下手。最后跟到了大佬的Twitter，在他转发的别人推荐这个解谜游戏的推里面发现还推荐了这个新手村任务 -- <a href="https://harrynull.tech/cipher">https://harrynull.tech/cipher</a>。</p>
+<p>以下就是边解题边记录的答题过程，考虑到我是CTF小白，一次性答不完的，特别是碰到未知领域的情况：
+────────────────────────────────୨ৎ────────────────────────────────
+────────────────────────────────୨ৎ────────────────────────────────
+────────────────────────────────୨ৎ────────────────────────────────</p>
+<ul>
+<li>stage 1~4 : 略</li>
+<li>stage 5:  宇宙的终极答案是什么？
+<ul>
+<li>42！虽没看过原作，但在好些文章上都看到过这个，都不用搜。</li>
+</ul>
+</li>
+<li>stage 6:  给了一个动漫人物的照片，问她是谁？
+<ul>
+<li>原来真的是问她叫啥，不认识但是以图搜图很快就找到了。</li>
+</ul>
+</li>
+<li>stage 7:  进来一片空白啥也没有
+<ul>
+<li>F12发现里面有图片，查看却是一片空白</li>
+<li>这时走了个弯路，html中没答案，想着css中会不会有，看到个“Hack for LastPass”激动了一下，结果啥也不是，最后问了一下AI才想起LastPass是个密码管理软件</li>
+<li>那么答案就在图片里面，想起之前听说过在图片里面保存秘密信息这种，是不是图片能转成密文这种，没弄出来。。</li>
+<li>看了下这个png图片的元数据，直观感觉要调整对比度或者啥的，于是打开了mac自带的色彩同步使用工具，对着曝光、灰度、饱和度、对比度一通点，最后就出来了。</li>
+<li>感觉折腾了一个小时，迈过了一道坎，进入统计里面的 top 19%了</li>
+</ul>
+</li>
+<li>stage 8: 又是一张图片，花里胡哨多了，给了个提示：“图片就一定是图片吗”
+<ul>
+<li>下载下来，file 一下，cat 一下，就看到最后的url了，好快。</li>
+</ul>
+</li>
+<li>stage 9: 密码都给了，但是返回密码错误
+<ul>
+<li>查看请求的request，发送的form数据，有隐藏的一个输入，stage为0，那么应该就是改为9了。</li>
+</ul>
+</li>
+<li>stage 10: 这次真是啥也没有，除了一段纯文本说你在10.5关，有点找不到方向了
+<ul>
+<li>那就是从第9关跳过来的时候有问题，apifox上手动请求了一下，就看到了第10关，如果在浏览器上F12开着元素就能看到先是返回了第10关然后马上跳到了10.5关。</li>
+</ul>
+</li>
+<li>stage 11: 给了一个字符串，就是解密了
+<ul>
+<li>咋一看是16进制的，就去重新编码为Unicode，但是报错了，解出来不是标准的字符，让我有点蒙圈了</li>
+<li>问AI说这最可能是Hash算法加密的，我还不太相信，因为我的第一反应是hash是单向函数不可逆呀；</li>
+<li>最后直接搜这个字符串，居然弹出<a href="https://md5.gromweb.com/">网页</a>说这是MD5然后可逆的，进去之后还真的逆出来了；</li>
+<li>看了一下网站的介绍，原来是字典攻击，就是对常用词汇提前正向生成，然后拿着hash值去匹配，我怎么把这个忽略了；</li>
+<li>差点在一个100%通过率的stage翻车了。。。</li>
+</ul>
+</li>
+<li>stage 12: 一串乱码，这才是解码题了 
+<ul>
+<li>GBK 和 UTF8 的编码解码混乱， 有一个现成的<a href="http://www.mytju.com/classcode/tools/messycoderecover.asp">网站</a> 。</li>
+</ul>
+</li>
+<li>stage 13: 标题是雪花噪声，图片是那种小时候看电视的黑白马赛克随机图，完全看不出个啥来
+<ul>
+<li>那应该就是要去噪声处理吧，没搞过这个，AI给了几个OpenCV的去噪算法，试了都不行诶；</li>
+</ul>
+</li>
+</ul>
+
+        </section>
+
+        
+            <div class="post-tags">
+                <nav class="nav tags">
+                    <ul class="tags">
+                        
+                            <li><a href=https://hawkinggg.github.io/tags/ctf/>CTF</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        
+
+    </article>
+</main>
+
+
+
+        <footer>
+  <div style="display:flex">
+    
+        <a class="soc" href=https:&#x2F;&#x2F;github.com&#x2F;hawkinggg title=GitHub>
+            <i data-feather=github></i>
+        </a>
+    
+        <a class="soc" href=https:&#x2F;&#x2F;twitter.com&#x2F;hawkinggggg title=Twitter>
+            <i data-feather=twitter></i>
+        </a>
+    
+  </div>
+  <div class="footer-info">
+    2024 © hong | <a
+      href="https://github.com/XXXMrG/archie-zola">Archie-Zola Theme</a>
+  </div>
+</footer>
+
+
+<script>
+    feather.replace();
+</script>
+
+
+    </div>
+</body>
+
+</html>

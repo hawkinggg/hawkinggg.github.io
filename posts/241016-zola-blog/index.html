@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    
+        <title>
+             博客部署记
+            
+        </title>
+
+        
+            <meta property="og:title" content="博客部署记" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="一场探索之旅的开始" />
+        
+    
+
+    
+        
+            <meta name="description" content="一场探索之旅的开始" />
+        
+    
+
+    
+         <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.png />
+    
+
+    
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWCYHDPZF1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-NWCYHDPZF1');
+        </script>
+    
+
+    
+    
+        <script src=https://hawkinggg.github.io/js/feather.min.js></script>
+    
+
+
+    
+        <link href=https://hawkinggg.github.io/css/fonts.css rel="stylesheet" />
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://hawkinggg.github.io/css/main.css />
+
+    
+        <link
+            rel="stylesheet"
+            id="darkModeStyle"
+            type="text/css"
+            href=https://hawkinggg.github.io/css/dark.css
+            
+            
+                disabled
+            
+        />
+    
+
+    
+
+
+    
+
+
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main" id="main_title">
+        <a href=https:&#x2F;&#x2F;hawkinggg.github.io>十二空间</a>
+    </div>
+
+    <nav>
+        
+            <a href=&#x2F;>Home</a>
+        
+            <a href=&#x2F;posts>All posts</a>
+        
+            <a href=&#x2F;about>About</a>
+        
+            <a href=&#x2F;tags>Tags</a>
+        
+
+        
+
+        
+            | <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+            <script src=https://hawkinggg.github.io/js/themetoggle.js></script>
+        
+    </nav>
+</header>
+
+
+        
+    
+<main>
+    <article>
+        <div class="title">
+            <h1 class="title">博客部署记</h1>
+            <div class="meta">
+                
+                on  2024-10-16
+
+                
+            </div>
+        </div>
+
+        
+
+        <section class="body">
+            <p>记录一下本blog的搭建过程</p>
+<h3 id="xuan-xing">选型</h3>
+<p>Q: 静态 or 动态</p>
+<p>之前学nextjs的时候，就发现了不少基于nextjs的开源博客，颜值还不错，自由度高，想做什么自己去修改实现，还真的有点心动。</p>
+<p>但最后还是选择了静态的博客模版，省时省心，先关注重点！</p>
+<hr />
+<p>Q: 部署到哪里？ github pages vs vercel vs 云主机 </p>
+<p>部署的方式倒是有很多，第三方的vercel就是学nextjs的时候接触的，云主机嘛自由度高随便玩。</p>
+<p>但是既然选择了静态博客那还是github pages了，这是对github的感情基础^_^。</p>
+<hr />
+<p>Q: 静态选哪个产品？ hugo vs zola</p>
+<p>hugo是go, zola是rust，都是我喜欢的语言。</p>
+<p>hugo更老牌生态更好，但年轻人嘛就是喜欢最求潮流追求新鲜的，zola的star也不少，theme主题虽然不多，但我只需要一个就好，而且如果想改动别人的主题，可以通过本地文件覆盖这样来做修改，无侵入。</p>
+<hr />
+<p>archie-zola:</p>
+<ul>
+<li>颜值过关，简洁の美感</li>
+<li>基本的分页、tag、dark模式这些都有</li>
+<li>集成google analytics - 只需在配置文件中修改id</li>
+<li>支持latex</li>
+<li>roadmap上后续还可以自定义css&amp;js</li>
+<li>没有评论功能
+<ul>
+<li>静态博客要评论功能，需要三方软件，比如disqus，还有构建在github issue之上的utterances</li>
+</ul>
+</li>
+<li>没有rss订阅
+<ul>
+<li>拜托，都没人来看诶</li>
+</ul>
+</li>
+</ul>
+<h3 id="bu-shu">部署</h3>
+<p>zola支持github pages的分离部署，就是项目本身是private repo，通过github action在push的时候 build and deploy到正真托管blog的public repo(xxxxx/xxxxx.github.io)上。</p>
+<p>这样的话，draft草稿文件就不会暴露出去，配置文件里面的某些信息也不会。</p>
+<p>副作用就是需要去new一个access token然后配置到action的secrets里面，也还好。</p>
+<h3 id="ti-yan-dao-liao-shi-yao">体验到了什么？</h3>
+<ul>
+<li>不怕您笑话，这是本人第一次用google analytics</li>
+</ul>
+
+        </section>
+
+        
+            <div class="post-tags">
+                <nav class="nav tags">
+                    <ul class="tags">
+                        
+                            <li><a href=https://hawkinggg.github.io/tags/life/>life</a></li>
+                        
+                            <li><a href=https://hawkinggg.github.io/tags/zola/>zola</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        
+
+    </article>
+</main>
+
+
+
+        <footer>
+  <div style="display:flex">
+    
+        <a class="soc" href=https:&#x2F;&#x2F;github.com&#x2F;hawkinggg title=GitHub>
+            <i data-feather=github></i>
+        </a>
+    
+        <a class="soc" href=https:&#x2F;&#x2F;twitter.com&#x2F;hawkinggggg title=Twitter>
+            <i data-feather=twitter></i>
+        </a>
+    
+  </div>
+  <div class="footer-info">
+    2024 © hong | <a
+      href="https://github.com/XXXMrG/archie-zola">Archie-Zola Theme</a>
+  </div>
+</footer>
+
+
+<script>
+    feather.replace();
+</script>
+
+
+    </div>
+</body>
+
+</html>

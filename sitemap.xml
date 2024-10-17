@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://hawkinggg.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/about/</loc>
+        <lastmod>2024-10-16</lastmod>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/posts/241009-welcome/</loc>
+        <lastmod>2024-10-09</lastmod>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/posts/241012-the-riddle/</loc>
+        <lastmod>2024-10-15</lastmod>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/posts/241016-zola-blog/</loc>
+        <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/tags/</loc>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/tags/ctf/</loc>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/tags/life/</loc>
+    </url>
+    <url>
+        <loc>https://hawkinggg.github.io/tags/zola/</loc>
+    </url>
+</urlset>
